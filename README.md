@@ -1,6 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/6crv4art4yvlkkv3?svg=true)](https://ci.appveyor.com/project/vapanov/ra-redux-filter)
 
-WEB VERSION https://valentin-panov.github.io/rra-redux-filter/
+WEB VERSION https://valentin-panov.github.io/ra-redux-filter/
 
 # Фильтрация
 
