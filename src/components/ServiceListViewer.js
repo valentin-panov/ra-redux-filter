@@ -17,9 +17,7 @@ export default function ServiceListViewer() {
       setFileredList(
         items
           .filter((item) => {
-            return item.name
-              .toLowerCase()
-              .startsWith(filter.name.toLowerCase());
+            return item.name.toLowerCase().includes(filter.name.toLowerCase());
           })
           .filter((item) => {
             return item.price.startsWith(filter.price);
