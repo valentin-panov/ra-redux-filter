@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import CloseIcon from '@material-ui/icons/Close';
 import EditIcon from '@material-ui/icons/Edit';
 import { useSelector, useDispatch } from 'react-redux';
@@ -8,23 +8,18 @@ export default function ServiceListViewer() {
   const dispatch = useDispatch();
   const items = useSelector((store) => store.serviceList.list);
   const filter = useSelector((store) => store.serviceList.filter);
-  const [filteredList, setFileredList] = useState(items);
 
-  useEffect(() => {
-    if (!filter) {
-      setFileredList(items);
-    } else {
-      setFileredList(
-        items
-          .filter((item) => {
-            return item.name.toLowerCase().includes(filter.name.toLowerCase());
-          })
-          .filter((item) => {
-            return item.price.startsWith(filter.price);
-          })
-      );
-    }
-  }, [items, filter]);
+  let filteredList = items;
+
+  if (filter) {
+    filteredList = items
+      .filter((item) => {
+        return item.name.toLowerCase().includes(filter.name.toLowerCase());
+      })
+      .filter((item) => {
+        return item.price.startsWith(filter.price);
+      });
+  }
 
   const onDeleteHandler = (id) => {
     dispatch(remove({ id }));
